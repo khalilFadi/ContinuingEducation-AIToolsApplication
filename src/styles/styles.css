@@ -1,0 +1,138 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.background {
+    flex: 1;
+    background-image: url('../images/LoginPageBackground.png'); /* Replace with actual image path */
+    background-size: cover;
+}
+
+.login-form {
+    flex: 1;
+    background-color: #f5f0e1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.singin-title {
+    margin-bottom: 20px;
+    width: 40vw;
+    font-size: 40px;
+    color: #618985;
+    font-family: 'Roboto Serif';
+}
+
+.google-signin, .signin-button, .byu-button {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    font-family: 'Inter';
+}
+
+.google-signin {
+    background-color: #4385F5;
+    color: white;
+    border: none;
+    width: 70%;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+}
+.signin-button {
+    background-color: #D33F49;
+    color: white;
+    border: none;
+    margin-top: 3%;
+    width: 30%;
+}
+
+.byu-button {
+    background-color: #618985;
+    color: white;
+    border: none;
+    width: 20%;
+    font-weight: 600;
+    /* margin-left: 4%; */
+    float: right;
+    margin-right: 3%;
+}
+  
+.google-sign-in-image {
+    margin-right: 8px; /* Space between image and text */
+    width: 20px; /* Adjust size as needed */
+    height: 20px; /* Ensure the image is square for consistent alignment */
+}
+form {
+    width: 120%;
+}
+.login-input{
+    width:80%;
+    /* margin-left: 2%; */
+    height: 4vh;
+    font-size: medium;
+    border-color: #618985;
+    border-radius: 5px;
+    border-style: solid;
+    border-width: 1px;
+}
+.login-input[type="text"]::placeholder {
+    color: #618985; /* Change 'gray' to any desired placeholder color */
+    /* margin-left: 2%; */
+  }
+.input-title{
+    color: #618985;
+    font-size: 1.2vw;
+    margin: 0;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    font-weight: 100;
+}
+/* input[type="text"], input[type="password"] {
+    width: calc(80% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+} */
+
+.forgot-password {
+    /* font-size: 0.9em; */
+    float: right;
+    margin-right: 20%;
+    color: grey;
+}
+.line-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Adjusts to the width of the parent container */
+    margin-top: 7px;
+    margin-bottom: 10px;
+    color:#618985;
+    /* margin-right: 50px; */
+}
+
+.line-container::before,
+.line-container::after {
+    content: "";
+    flex-grow: 1; /* Allows the lines to grow and fill available space */
+    border-bottom: 1px solid #618985; /* Line style */
+    margin: 0 10px; /* Space between line and text */
+}
+
+.line-text {
+    white-space: nowrap; /* Prevents text from wrapping */
+}
