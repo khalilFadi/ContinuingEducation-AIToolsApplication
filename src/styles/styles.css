@@ -312,3 +312,504 @@ form {
     width: 100%;
     height: fit-content;
 }
+.myDatasets .Datasets-list-div{
+    position: absolute;
+    top: 5%;
+    left: 18.5%;
+    width: 78%;
+    height: 90%;
+    background-color: #F7F7F7;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+}
+.myDatasets .Datasets-list-div .title-div{
+    background-color: #5a7f6f;
+    width: 100%;
+    height: 10%;
+    border-radius: 20px 20px 0px 0px;
+    align-items: center;
+    text-align: left;
+    position: absolute;
+    color: white;
+    display: flex;
+    font-size: 13px;
+}
+.myDatasets .Datasets-list-div .title-div h1{
+    margin-left: 3%;
+}
+.myDatasets .Datasets-list-div .items-list{
+    position: absolute;
+    top: 10%;
+    left: 0%;
+    width: 100%;
+    height: 90%;
+    overflow-y: auto;
+    border-radius: 0 0 15px 15px;
+    margin-left: 2.5%;
+} 
+.myDatasets .Datasets-list-div .items-list .item{
+    position: relative;
+    width: 95%;
+    height: 10%;
+    border-radius: 10px;
+    margin-top: 2%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    display: flex;
+    align-items: center;
+}
+.myDatasets .Datasets-list-div .items-list .item .basic-info{
+    width: 92%;
+    height: 100%;
+    float: left;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.myDatasets .Datasets-list-div .items-list .item .more-info{
+    width: 8%;
+    height: 100%;
+    float: right;
+    background-color: #5a7f6f;
+    border-radius: 0px 10px 10px 0px;
+}
+.myDatasets .Datasets-list-div .items-list .item .more-info .info-icon{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    height: 100%;
+    width: 100%;
+}
+.myDatasets .Datasets-list-div .items-list .item .basic-info .DatasetName{
+    float: left;
+    width: 90%;
+    font-size: 18px;
+    margin-left: 3%;
+    font-weight: 100;
+}
+.myDatasets .Datasets-list-div .items-list .item .basic-info .numebrOfItems{
+    float: right;
+    width: 10%;
+    font-size: 18px;
+    font-weight: 100;
+}
+.Sentiment .Choose-dataset{
+    position: absolute;
+    top: 5%;
+    left: 18%;
+    background-color: white;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+.Sentiment .Choose-dataset .title-div{
+    width: 100%;
+    height: 20%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.Sentiment .Choose-dataset .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.Sentiment .Choose-dataset .items{
+    width: 100%;
+    height: 80%;
+    margin-top: 30%;
+    overflow-y: auto;
+}
+.Sentiment .Choose-dataset .items .item{
+    width: 80%;
+    margin-left: 10%;
+    height: 20%;
+    font-size: 0.6vw;
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    align-items: center;
+    color:#5a7f6f;
+}
+.Sentiment .Choose-dataset .items .item:hover{
+    background-color: #5a7f6f;
+    color: white;
+}
+.Sentiment .Choose-dataset .items .item h1{
+    margin-left: 10%;
+    font-weight: 100;
+
+}
+.Sentiment .Choose-column{
+    position: absolute;
+    top: 45%;
+    left: 18%;
+    background-color: white;
+    width: 20%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+
+.Sentiment .Choose-column .title-div{
+    width: 100%;
+    height: 15%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.Sentiment .Choose-column .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.Sentiment .Choose-column .items{
+    width: 100%;
+    height: 80%;
+    margin-top: 30%;
+    overflow-y: auto;
+}
+.Sentiment .Choose-column .items .item{
+    width: 80%;
+    margin-left: 10%;
+    height: 15%;
+    font-size: 0.6vw;
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    color:#5a7f6f;
+}
+.Sentiment .Choose-column .items .item:hover{
+    background-color: #5a7f6f;
+    color: white;
+}
+.Sentiment .Choose-column .items .item h1{
+    margin-left: 10%;
+    font-weight: 100;
+}
+.Sentiment .Sentiment-Analysis-div{
+    position: absolute;
+    top: 5%;
+    left: 40.5%;
+    background-color: white;
+    width: 57%;
+    height: 90%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+
+.Sentiment .Sentiment-Analysis-div .title-div{
+    width: 100%;
+    height: 7.5%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.Sentiment .Sentiment-Analysis-div .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.Sentiment .Sentiment-Analysis-div .Pie-Graph{
+    width: 100%;
+    margin-top: 7.5%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Sentiment .Sentiment-Analysis-div .more-info{
+    width: 100%;
+    height: 30%;
+}
+.Sentiment .Sentiment-Analysis-div .Pie-Graph .shape{
+    width: 50%;    /* Adjust size as needed */
+    aspect-ratio: 1 / 1;   /* Same value as width to make it a circle */
+    background-color: #5a7f6f;  /* Example background color */
+    border-radius: 50%;         /* This makes the div a circle */
+}
+
+.FactorAnalysis .Choose-dataset{
+    position: absolute;
+    top: 5%;
+    left: 18%;
+    background-color: white;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+.FactorAnalysis .Choose-dataset .title-div{
+    width: 100%;
+    height: 20%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.FactorAnalysis .Choose-dataset .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.FactorAnalysis .Choose-dataset .items{
+    width: 100%;
+    height: 80%;
+    margin-top: 30%;
+    overflow-y: auto;
+}
+.FactorAnalysis .Choose-dataset .items .item{
+    width: 80%;
+    margin-left: 10%;
+    height: 20%;
+    font-size: 0.6vw;
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    align-items: center;
+    color:#5a7f6f;
+}
+.FactorAnalysis .Choose-dataset .items .item:hover{
+    background-color: #5a7f6f;
+    color: white;
+}
+.FactorAnalysis .Choose-dataset .items .item h1{
+    margin-left: 10%;
+    font-weight: 100;
+
+}
+.FactorAnalysis .Choose-column{
+    position: absolute;
+    top: 45%;
+    left: 18%;
+    background-color: white;
+    width: 20%;
+    height: 30%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+
+.FactorAnalysis .Choose-column .title-div{
+    width: 100%;
+    height: 20%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.FactorAnalysis .Choose-column .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.FactorAnalysis .Choose-column .items{
+    width: 100%;
+    height: 80%;
+    margin-top: 20%;
+    overflow-y: auto;
+}
+.FactorAnalysis .Choose-column .items .item{
+    width: 80%;
+    margin-left: 10%;
+    height: 25%;
+    font-size: 0.6vw;
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    color:#5a7f6f;
+}
+.FactorAnalysis .Choose-column .items .item:hover{
+    background-color: #5a7f6f;
+    color: white;
+}
+.FactorAnalysis .Choose-column .items .item h1{
+    margin-left: 10%;
+    font-weight: 100;
+}
+.FactorAnalysis .Paramter-Buttons-Div{
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    top: 78%;
+    left: 18%;
+    border-radius: 10px;
+    color: white;
+    font-size: 0.5vw;
+}
+.FactorAnalysis .Paramter-Buttons-Div .number-of-rows-button{
+    width: 100%;
+    height: 40%;
+    background-color: #5a7f6f;
+    border-radius: 10px;    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.FactorAnalysis .Paramter-Buttons-Div .number-of-rows-button .name{
+    float: left;
+    width: 70%;
+    margin-left: 10%;
+}
+.FactorAnalysis .Paramter-Buttons-Div .number-of-rows-button .edit-value{
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+.FactorAnalysis .Paramter-Buttons-Div .number-of-rows-button .edit-value *{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin: 0;
+    margin-right: 10%;
+}
+.FactorAnalysis .Paramter-Buttons-Div .number-of-rows-button .edit-value *:hover{
+    background-color: #5a7f6f;
+    opacity: 0.8;
+}
+.FactorAnalysis .Paramter-Buttons-Div .max-number-of-titles{
+    width: 100%;
+    height: 40%;
+    background-color: #5a7f6f;
+    border-radius: 10px;    
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 7%;
+}
+
+.FactorAnalysis .Paramter-Buttons-Div .max-number-of-titles .name{
+    float: left;
+    width: 70%;
+    margin-left: 10%;
+}
+.FactorAnalysis .Paramter-Buttons-Div .max-number-of-titles .edit-value{
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+.FactorAnalysis .Paramter-Buttons-Div .max-number-of-titles .edit-value *{
+    height: 100%;
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+    margin: 0;
+    margin-right: 10%;
+}
+.FactorAnalysis .Paramter-Buttons-Div .max-number-of-titles .edit-value *:hover{
+    background-color: #5a7f6f;
+    opacity: 0.8;
+}
+.FactorAnalysis .Factor-Analysis-div{
+    position: absolute;
+    top: 5%;
+    left: 40.5%;
+    background-color: white;
+    width: 57%;
+    height: 90%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+
+.FactorAnalysis .Factor-Analysis-div .title-div{
+    width: 100%;
+    height: 7.5%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.FactorAnalysis .Factor-Analysis-div .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.FactorAnalysis .Factor-Analysis-div .items-presentation{
+    width: 100%;
+    height: 92.5%;
+    margin-top: 7.5%;
+}
+
+.FactorAnalysis .Factor-Analysis-div .items-presentation .title{
+    color: black;
+    font-size: 8px;
+    margin-left: 5%;
+}
+.FactorAnalysis .Factor-Analysis-div .items-presentation .title *{
+    float: left;
+    width: 30%;
+    font-weight: 100;
+}
+.FactorAnalysis .Factor-Analysis-div .items-presentation .items{
+
+}
+.FactorAnalysis .Factor-Analysis-div .items-presentation .items .item{
+    width: 90%;
+    height: 100%;
+    border: solid #5a7f6f 1px;
+    position: relative;
+    margin-top: 3%;
+    color: black
+}
+
