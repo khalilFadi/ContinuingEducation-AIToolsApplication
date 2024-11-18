@@ -80,18 +80,39 @@ const PersonaCreation = () => {
     };
 
     const handleSendMessage = async () => {
-        //TODO: 
-        if (!selectedPersona || !message) return;
+        if (!selectedPersona || !message) {
+            setError("Please select a persona and type a message.");
+            return;
+        }
     
+        // Add the user's message to the chat history immediately
         const userMessage = { role: 'user', content: message };
-        const personaMessage = {
-            role: 'persona',
-            content: 'HEY', // Fixed response
-        };
+        setChatHistory((prevChatHistory) => [...prevChatHistory, userMessage]);
     
-        setChatHistory([...chatHistory, userMessage, personaMessage]);
+        try {
+            // Send the request to the backend
+            const response = await axios.post('http://localhost:5001/api/persona-chat', {
+                persona: selectedPersona.Persona, // Long persona description
+                user_message: message, // User's message
+            });
+    
+            // Add the persona's response to the chat history
+            const personaMessage = {
+                role: 'persona',
+                content: response.data.response, // Persona's response
+            };
+    
+            setChatHistory((prevChatHistory) => [...prevChatHistory, personaMessage]);
+        } catch (error) {
+            console.error("Error sending message to persona-chat API:", error);
+            setError("An unexpected error occurred. Please try again later.");
+        }
+    
+        // Clear the input box
         setMessage('');
     };
+    
+    
     
     return (
         <div className="container">

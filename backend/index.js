@@ -443,6 +443,71 @@ app.post('/api/create-personas', async (req, res) => {
 });
 
 
+app.post('/api/persona-chat', async (req, res) => {
+    const { persona, user_message } = req.body;
+
+    if (!persona || !user_message) {
+        return res.status(400).json({
+            message: "Persona and user message are required.",
+        });
+    }
+
+    console.log("Executing Persona Chat with persona:", persona, "and message:", user_message);
+
+    try {
+        // Use JSON.stringify to safely escape the inputs
+        const escapedPersona = JSON.stringify(persona);
+        const escapedMessage = JSON.stringify(user_message);
+
+        // Construct the command to run the Python script
+        const command = `python python/PersonaChat.py ${escapedPersona} ${escapedMessage}`;
+        console.log("Executing command:", command);
+
+        // Execute the Python script
+        exec(command, (error, stdout, stderr) => {
+            if (error) {
+                console.error("Error executing script:", error.message);
+                return res.status(500).json({
+                    message: "Failed to execute persona chat script.",
+                    error: error.message,
+                });
+            }
+
+            if (stderr) {
+                console.error("Python script returned an error:", stderr);
+                return res.status(500).json({
+                    message: "Error in Python script.",
+                    error: stderr,
+                });
+            }
+
+            try {
+                const output = JSON.parse(stdout);
+
+                if (!output.persona_response) {
+                    throw new Error("Missing persona_response in script output.");
+                }
+
+                return res.status(200).json({
+                    message: "Response generated successfully.",
+                    response: output.persona_response,
+                });
+            } catch (parseError) {
+                console.error("Error parsing script output:", parseError.message);
+                return res.status(500).json({
+                    message: "Failed to parse script output.",
+                    error: parseError.message,
+                });
+            }
+        });
+    } catch (error) {
+        console.error("Unexpected error in persona-chat endpoint:", error.message);
+        return res.status(500).json({
+            message: "Internal server error.",
+            error: error.message,
+        });
+    }
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
