@@ -1,14 +1,12 @@
 import * as React from "react"
-import LoginPage  from "./loginpage"
-import UploadDataset from "./uploadDataset"
-const IndexPage = () => {
+import { Link } from "gatsby";
+import LoginPage from "./loginpage";
+
+export default function Component () {
   return (
-    <main >
-      <LoginPage/>
-    </main>
-  )
+    <div>
+        <LoginPage/>
+    </div>
+  );
+
 }
-
-export default IndexPage
-
-export const Head = () => <title>Home Page</title>

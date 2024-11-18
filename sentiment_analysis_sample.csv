@@ -1,0 +1,39 @@
+name,sentence,actual sentiment,service,food quality,ambiance,value for money
+Review1,"I had a fantastic experience at the restaurant. The food was amazing!",positive,excellent,excellent,cozy,high
+Review2,"The movie was okay, but it didn't meet my expectations.",neutral,n/a,n/a,n/a,moderate
+Review3,"I'm really disappointed with the service. I won't be coming back.",negative,poor,n/a,n/a,low
+Review4,"Such a wonderful day! Everything went perfectly.",positive,n/a,n/a,n/a,n/a
+Review5,"It was an average performance; nothing particularly impressive.",neutral,n/a,n/a,n/a,moderate
+Review6,"The hotel staff were friendly, but the rooms were not well-kept.",neutral,good,poor,average,moderate
+Review7,"I absolutely loved the coffee here! It's now my go-to spot.",positive,good,excellent,cozy,reasonable
+Review8,"Terrible experience! The staff was rude, and the food was awful.",negative,poor,poor,chaotic,low
+Review9,"Beautiful view, but the food and service could use some improvement.",neutral,average,average,excellent,high
+Review10,"I feel it was overpriced for what was offered.",negative,average,average,average,low
+Review11,"Great value for money, and the location was very convenient.",positive,good,good,convenient,excellent
+Review12,"The staff made my stay memorable, though the amenities were basic.",positive,excellent,average,comfortable,reasonable
+Review13,"The performance was captivating and thoroughly enjoyable.",positive,n/a,n/a,n/a,n/a
+Review14,"It was too noisy, and the service was slow. Not a pleasant experience.",negative,poor,n/a,chaotic,low
+Review15,"Good place for a quick meal, though nothing special about the food.",neutral,good,average,casual,moderate
+Review16,"Amazing atmosphere and friendly staff, but the prices are high.",neutral,good,good,excellent,low
+Review17,"The shopping experience was quite underwhelming.",negative,n/a,n/a,n/a,low
+Review18,"Perfect spot for a family dinner! Loved everything about it.",positive,excellent,excellent,welcoming,excellent
+Review19,"Not worth the hype; the event was poorly organized.",negative,poor,n/a,chaotic,low
+Review20,"I was pleasantly surprised by the quality for the price!",positive,good,good,comfortable,excellent
+Review3,"I'm really disappointed with the service. I won't be coming back.",negative,poor,n/a,n/a,low
+Review4,"Such a wonderful day! Everything went perfectly.",positive,n/a,n/a,n/a,n/a
+Review5,"It was an average performance; nothing particularly impressive.",neutral,n/a,n/a,n/a,moderate
+Review6,"The hotel staff were friendly, but the rooms were not well-kept.",neutral,good,poor,average,moderate
+Review7,"I absolutely loved the coffee here! It's now my go-to spot.",positive,good,excellent,cozy,reasonable
+Review8,"Terrible experience! The staff was rude, and the food was awful.",negative,poor,poor,chaotic,low
+Review9,"Beautiful view, but the food and service could use some improvement.",neutral,average,average,excellent,high
+Review10,"I feel it was overpriced for what was offered.",negative,average,average,average,low
+Review11,"Great value for money, and the location was very convenient.",positive,good,good,convenient,excellent
+Review12,"The staff made my stay memorable, though the amenities were basic.",positive,excellent,average,comfortable,reasonable
+Review13,"The performance was captivating and thoroughly enjoyable.",positive,n/a,n/a,n/a,n/a
+Review14,"It was too noisy, and the service was slow. Not a pleasant experience.",negative,poor,n/a,chaotic,low
+Review15,"Good place for a quick meal, though nothing special about the food.",neutral,good,average,casual,moderate
+Review16,"Amazing atmosphere and friendly staff, but the prices are high.",neutral,good,good,excellent,low
+Review17,"The shopping experience was quite underwhelming.",negative,n/a,n/a,n/a,low
+Review18,"Perfect spot for a family dinner! Loved everything about it.",positive,excellent,excellent,welcoming,excellent
+Review19,"Not worth the hype; the event was poorly organized.",negative,poor,n/a,chaotic,low
+Review20,"I was pleasantly surprised by the quality for the price!",positive,good,good,comfortable,excellent

@@ -225,14 +225,28 @@ form {
     height: 49.5%;
     border-radius: 15px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    overflow-y: auto;
+    scrollbar-width: none;
+
 }
 .UploadDataset .dataset-info .column-name{
     background-color: #5a7f6f;
     width: 40%;
-    height: 100%;
-    border-radius: 15px 0px 0px 15px;
+    height: fit-content;
+    min-height: 100%;
     text-align: center;
     position: absolute;
+    scrollbar-width: none;
+}
+.UploadDataset .dataset-info .column-name .item{
+    color: #F7F7F7;
+    overflow-x: auto;
+    overflow-y: auto;
+    text-align: center;
+    scrollbar-width: none;
+}
+.UploadDataset .dataset-info .column-info .item{
+    color: #618985;
 }
 .UploadDataset .dataset-info .column-info{
     width: 60%;
@@ -311,6 +325,35 @@ form {
     left: 0%;
     width: 100%;
     height: fit-content;
+}
+.UploadDataset .Dataset-items .buttons-div .button:hover{
+    opacity: 0.8;
+}
+.UploadDataset .Dataset-items .items-div{
+    width: 98%;
+    height: 70vh;
+    overflow: auto;
+    margin-top: 8%;
+    scrollbar-width: none;
+    border-radius: 20px;
+}
+.UploadDataset .Dataset-items .items-div .table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 10px 10px; 
+}
+
+.UploadDataset .Dataset-items .items-div .titles {
+    color: #618985;
+}
+
+.UploadDataset .Dataset-items .items-div .element {
+    padding: 8px 12px;
+    text-align: left; 
+}
+
+.UploadDataset .Dataset-items .items-div tr {
+    margin-bottom: 10px; 
 }
 .myDatasets .Datasets-list-div{
     position: absolute;
@@ -445,6 +488,16 @@ form {
     align-items: center;
     color:#5a7f6f;
 }
+.Sentiment .Choose-dataset .items .item.selected {
+    background-color: #d0e6f6; /* Highlight color */
+    border-color: #4a90e2;
+}
+
+.Sentiment .Choose-dataset .items .item.selected {
+    background-color: #5a7f6f; /* Light gray for selected item */
+    border: 3px solid #F3E9DC; /* Optional border for emphasis */
+    color: white;
+}
 .Sentiment .Choose-dataset .items .item:hover{
     background-color: #5a7f6f;
     color: white;
@@ -456,11 +509,11 @@ form {
 }
 .Sentiment .Choose-column{
     position: absolute;
-    top: 45%;
+    top: 48%;
     left: 18%;
     background-color: white;
     width: 20%;
-    height: 50%;
+    height: 47%;
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
     color: white;
@@ -545,13 +598,14 @@ form {
     width: 100%;
     margin-top: 7.5%;
     height: 60%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 .Sentiment .Sentiment-Analysis-div .more-info{
     width: 100%;
     height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
 }
 .Sentiment .Sentiment-Analysis-div .Pie-Graph .shape{
     width: 50%;    /* Adjust size as needed */
@@ -767,6 +821,9 @@ form {
     border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
     color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .FactorAnalysis .Factor-Analysis-div .title-div{
@@ -813,3 +870,591 @@ form {
     color: black
 }
 
+
+.PersonaCreation .Choose-dataset{
+    position: absolute;
+    top: 5%;
+    left: 18%;
+    background-color: white;
+    width: 20%;
+    aspect-ratio: 1 / 1;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+.PersonaCreation .Choose-dataset .title-div{
+    width: 100%;
+    height: 20%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+.PersonaCreation .Choose-dataset .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.PersonaCreation .Choose-dataset .items{
+    width: 100%;
+    height: 80%;
+    margin-top: 30%;
+    overflow-y: auto;
+}
+.PersonaCreation .Choose-dataset .items .item{
+    width: 80%;
+    margin-left: 10%;
+    height: 20%;
+    font-size: 0.6vw;
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+    align-items: center;
+    color:#5a7f6f;
+}
+.PersonaCreation .Choose-dataset .items .item:hover{
+    background-color: #5a7f6f;
+    color: white;
+}
+.PersonaCreation .Choose-dataset .items .item h1{
+    margin-left: 10%;
+    font-weight: 100;
+
+}
+.PersonaCreation .Choose-column{
+    position: absolute;
+    top: 45%;
+    left: 18%;
+    background-color: white;
+    width: 20%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+
+.PersonaCreation .Choose-column .title-div{
+    width: 100%;
+    height: 12%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.PersonaCreation .Choose-column .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.PersonaCreation .Choose-column .items{
+    width: 100%;
+    height: 80%;
+    margin-top: 20%;
+    overflow-y: auto;
+}
+.PersonaCreation .Choose-column .items .item{
+    width: 80%;
+    margin-left: 10%;
+    height: 15%;
+    font-size: 0.6vw;
+    border-color: #5a7f6f;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 3%;
+    color:#5a7f6f;
+}
+.PersonaCreation .Choose-column .items .item:hover{
+    background-color: #5a7f6f;
+    color: white;
+}
+.PersonaCreation .Choose-column .items .item h1{
+    margin-left: 10%;
+    font-weight: 100;
+}
+.PersonaCreation .Persona-selection-div{
+    position: absolute;
+    top: 5%;
+    left: 40.5%;
+    background-color: white;
+    width: 57%;
+    height: 39%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+
+.PersonaCreation .Persona-selection-div .title-div{
+    width: 100%;
+    height: 20%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.PersonaCreation .Persona-selection-div .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.PersonaCreation .Persona-selection-div .items-presentation{
+    width: 100%;
+    height: 92.5%;
+    margin-top: 10%;
+    overflow-x: auto; 
+    white-space: nowrap;
+    scrollbar-width: none;
+}
+
+.PersonaCreation .Persona-selection-div .items-presentation .title{
+    color: black;
+    font-size: 8px;
+    margin-left: 5%;
+}
+.PersonaCreation .Persona-selection-div .items-presentation .title *{
+    float: left;
+    width: 30%;
+    font-weight: 100;
+}
+.PersonaCreation .Persona-selection-div .items-presentation .item{
+    background-color: lightgrey;
+    display: inline-block;
+    height: 70%;
+    aspect-ratio: 1 / 1;
+    margin-left: 5%;
+    border-radius: 10px;
+}
+.PersonaCreation .Persona-selection-div .items-presentation .item:hover{
+    opacity: 0.8;
+}
+.PersonaCreation .Persona-selection-div .items-presentation .item{
+    width: 20%;
+    aspect-ratio: 1 /1;
+    border: solid #5a7f6f 1px;
+    position: relative;
+    align-items: center;
+    text-align: center;
+    font-size: large;
+    justify-content: center;
+    background-color: #467359;
+    color: white;
+}
+.PersonaCreation .Persona-selection-div .create-personas-button{
+    background-color: #467359;
+    width: 20%;
+    font-size: 2vw;
+    aspect-ratio: 1 / 1;
+    margin-left: 40%;
+}
+.PersonaCreation .Chat-div{
+    position: absolute;
+    top: 45%;
+    left: 40.5%;
+    background-color: white;
+    width: 57%;
+    height: 50%;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    color: white;
+}
+.PersonaCreation .Chat-div .title-div{
+    width: 100%;
+    height: 12%;
+    background-color: #5a7f6f;
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+}
+
+.PersonaCreation .Chat-div .title-div .title{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+.PersonaCreation .Chat-div .Chat-box{
+    width: 100%;
+    height: 100%;
+    margin-top: 6%;
+}
+.PersonaCreation .Chat-div .Chat-box .Chat-items{
+    width: 95%;
+    margin-left: 2.5%;
+    height: 70%;
+}   
+.PersonaCreation .Chat-div .send-message{
+    width: 90%;
+    height: 10%;
+    bottom: 10vh;
+    margin-left: 4%;
+    height: 10%;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15); 
+    border: 1px solid #5a7f6f;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    position: absolute;
+    bottom: 3%;
+}
+.PersonaCreation .Chat-div .send-message .message-input{
+    width: 90%;
+    height: 100%;
+    float: left;
+    border: 0.2px solid #5a7f6f;
+    border-radius: 3px;
+}
+.PersonaCreation .Chat-div .send-message .send-message-button{
+    height: 110%;
+    aspect-ratio: 1 / 1;
+    background-color: #5a7f6f;
+    float: right;
+    margin-left: 2%;
+}
+.PersonaCreation .Chat-div .Chat-box{
+    background-color: var(--background-color);
+    border: 1px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 20px;
+    max-height: 60%;
+    overflow-y: auto;
+
+    display: flex;
+    flex-direction: column;
+}
+.PersonaCreation .Chat-div .Chat-box::-webkit-scrollbar {
+    display: none;
+  }
+  
+.PersonaCreation .Chat-div .Chat-box .Chat-items {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+.PersonaCreation .Chat-div .Chat-box .chat-message {
+    max-width: 70%;
+    padding: 10px 15px;
+    margin: 5px 0;
+    border-radius: 15px;
+    color: white;
+    font-size: 16px;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.PersonaCreation .Chat-div .Chat-box .chat-message.user {
+    align-self: flex-end;
+    background-color: #467359;
+    border-bottom-right-radius: 0;
+}
+
+.PersonaCreation .Chat-div .Chat-box .chat-message.persona {
+    align-self: flex-start;
+    background-color: #4a6c5d;
+    border-bottom-left-radius: 0;
+}
+
+.UploadDataset .buttons-div .progress-bar{
+    position: absolute;
+    top: 49.5%;
+    left: -2px;
+    width: 100%;
+    /* margin-bottom: 5%; */
+}
+.UploadDataset .buttons-div .progress-bar .slider-Loading {
+    -webkit-appearance: none; /* Remove default styling */
+    appearance: none;
+    width: 100%; /* Full width */
+    height: 20px; /* Thickness of the line */
+    background-color: #F3E9DC; /* Background color for the unfilled portion */
+    border-radius: 0px 0px 15px 15px; /* Slight rounding for the ends */
+    outline: none;
+    background-image: linear-gradient(to right, #5a7f6f, #5a7f6f); /* Initial loaded color */
+    background-size: 0% 100%; /* Start with no fill */
+    background-repeat: no-repeat; /* Prevent repetition */
+}
+/* Remove the thumb/circle */
+.UploadDataset .buttons-div .progress-bar .slider-Loading::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Remove default circle on Chrome */
+    appearance: none;
+}
+.UploadDataset .buttons-div .progress-bar .slider-Loading::-moz-range-thumb {
+    appearance: none; /* Remove default circle on Firefox */
+}
+.UploadDataset .buttons-div .progress-bar .slider-Loading::-ms-thumb {
+    appearance: none; /* Remove default circle on Edge */
+}
+
+/* Optional: add some hover or focus effects */
+.UploadDataset .buttons-div .progress-bar .slider-Loading:hover {
+    opacity: 1; /* Full opacity on hover */
+}
+
+.UploadDataset .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.UploadDataset .modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+}
+
+.UploadDataset .dataset-name-input {
+    margin: 30px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.UploadDataset .dataset-name-input label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.UploadDataset .dataset-name-input input {
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100;
+}
+
+.UploadDataset .modal-confirm-button, .modal-close-button {
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #5a7f6f;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.UploadDataset .modal-close-button {
+    background: #999;
+}
+
+.UploadDataset .modal-confirm-button:hover {
+    background: #4a6c5d;
+}
+
+.UploadDataset .modal-close-button:hover {
+    background: #777;
+}
+
+.Sentiment .Sentiment-Analysis-div .more-info .sentiment-button {
+    padding: 10px 20px;
+    background-color: #5a7f6f;
+    color: white;
+    border: none;
+    height: 25%;
+    font-size: large;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.Sentiment .Choose-column .items .column-item label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    cursor: pointer;
+}
+
+.Sentiment .Sentiment-Analysis-div .more-info .sentiment-button:hover:not(:disabled) {
+    background-color: #467359;
+}
+
+.Sentiment .Sentiment-Analysis-div .more-info .sentiment-button:disabled {
+    background-color: #a9a9a9;
+    cursor: not-allowed;
+}
+.Sentiment .Choose-column .items .column-item input[type="checkbox"] {
+    margin-right: 10px;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.Sentiment .Choose-column .items .checkbox-custom {
+    /* Custom styles for the checkbox if needed */
+}
+.Sentiment .Choose-column .items .item {
+    margin-bottom: 5px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.Sentiment .Choose-column .items .item:hover {
+    background-color: #4a6c5d;
+}
+
+.Sentiment .Choose-column .items .item.selected {
+    background-color: #4a6c5d; /* Highlight color */
+    border-color: #4a6c5d;
+    color: white;
+}
+
+.Sentiment .Sentiment-Analysis-div .button-div .run-sentiment-button{
+    width: 35%;
+}
+.Sentiment .Pie-Graph .pie-chart{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+}
+.Sentiment .Sentiment-Analysis-div .button-div{
+    width: 100%;
+    height: fit-content;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.FactorAnalysis .factor-analysis-button{
+    position: absolute;
+    bottom: 5%;
+    /* width: ; */
+}
+
+
+
+
+
+/* General container styling */
+
+/* .Choose-dataset, .Choose-column, .Paramter-Buttons-Div, .Factor-Analysis-div {
+    width: 100%;
+    max-width: 600px;
+    margin-bottom: 20px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+} */
+
+
+/* Dataset and Column items */
+.FactorAnalysis .Factor-Analysis-div .items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.FactorAnalysis .Factor-Analysis-div .item {
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+}
+
+.FactorAnalysis .Factor-Analysis-div .item:hover {
+    background-color: #e9ecef;
+}
+
+.FactorAnalysis .Factor-Analysis-div .selected {
+    background-color: #007bff;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+
+/* Factor Analysis button */
+.factor-analysis-button {
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #fff;
+    background-color: #467359;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.factor-analysis-button:hover {
+    background-color: #0056b3;
+}
+
+
+/* Factor Analysis Result styling */
+.FactorAnalysis .Factor-Analysis-div .factor-analysis-result {
+    width: 100%;
+    top: 10%;
+    position: absolute;
+    max-width: 600px;
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.FactorAnalysis .Factor-Analysis-div .factor-analysis-result h2 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.FactorAnalysis .Factor-Analysis-div .topic {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.FactorAnalysis .Factor-Analysis-div .topic h3 {
+    font-size: 1.2em;
+    color: #007bff;
+    margin-bottom: 5px;
+}
+
+.FactorAnalysis .Factor-Analysis-div .topic p {
+    margin: 5px 0;
+    color: #333;
+}
+
+.FactorAnalysis .Factor-Analysis-div .topic p strong {
+    color: #555;
+}

@@ -1,18 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import '../styles/uploadDataset.css';
 import SideBar from '../components/sidebar';
-import addDataBasaButton from '../images/icons/AddDataBaseButton.png';
 import axios from 'axios';
 
-const FactorAnalysis = () => {
+const PersonaCreation = () => {
     const [datasets, setDatasets] = useState([]);
     const [selectedDataset, setSelectedDataset] = useState(null);
     const [columns, setColumns] = useState([]);
     const [selectedColumns, setSelectedColumns] = useState([]);
     const [error, setError] = useState(null);
-    const [minRows, setMinRows] = useState(20);
-    const [maxTitles, setMaxTitles] = useState(2);
-    const [factorAnalysisResult, setFactorAnalysisResult] = useState(null);
+    const [showCreatePersonaButton, setShowCreatePersonaButton] = useState(true);
+    const [personas, setPersonas] = useState([]); // State to store personas
+    const [selectedPersona, setSelectedPersona] = useState(null); // Selected persona
+    const [message, setMessage] = useState('');
+    const [chatHistory, setChatHistory] = useState([]); // Store chat messages
 
     useEffect(() => {
         const fetchDatasets = async () => {
@@ -52,36 +53,50 @@ const FactorAnalysis = () => {
 
     const isColumnSelected = (columnName) => selectedColumns.includes(columnName);
 
-    const incrementMinRows = () => setMinRows(prev => prev + 1);
-    const decrementMinRows = () => setMinRows(prev => (prev > 0 ? prev - 1 : 0));
-    const incrementMaxTitles = () => setMaxTitles(prev => prev + 1);
-    const decrementMaxTitles = () => setMaxTitles(prev => (prev > 0 ? prev - 1 : 0));
-
-    const handleFactorAnalysis = async () => {
+    const handleCreatePersonaClick = async () => {
         if (!selectedDataset || selectedColumns.length === 0) {
-            setError("Please select a dataset and at least one column for factor analysis.");
+            setError("Please select a dataset and at least one column.");
             return;
         }
-
         try {
-            const response = await axios.post('http://localhost:5001/api/perform-factor-analysis', {
-                databaseId: selectedDataset._id,
-                columnName: selectedColumns[0], // Use the first selected column for analysis
-                minRows,
-                maxTitles
+            const response = await axios.post('http://localhost:5001/api/create-personas', {
+                datasetId: selectedDataset._id,
+                columnName: selectedColumns[0], // Assume first selected column for simplicity
+                numPersonas: 2,
             });
-            setFactorAnalysisResult(response.data.result);
+
+            // Set personas with detailed data
+            setPersonas(response.data.personalities);
+            setShowCreatePersonaButton(false); // Hide the button
             setError(null);
         } catch (error) {
-            console.error("Error performing factor analysis:", error);
-            setError("Failed to perform factor analysis.");
+            console.error("Error creating personas:", error);
+            setError("Failed to create personas. Please try again.");
         }
     };
 
+    const handlePersonaClick = (persona) => {
+        setSelectedPersona(persona);
+    };
+
+    const handleSendMessage = async () => {
+        //TODO: 
+        if (!selectedPersona || !message) return;
+    
+        const userMessage = { role: 'user', content: message };
+        const personaMessage = {
+            role: 'persona',
+            content: 'HEY', // Fixed response
+        };
+    
+        setChatHistory([...chatHistory, userMessage, personaMessage]);
+        setMessage('');
+    };
+    
     return (
         <div className="container">
-            <SideBar/>
-            <div className="main FactorAnalysis">
+            <SideBar />
+            <div className="main PersonaCreation">
                 <div className='Choose-dataset'>
                     <div className='title-div'>
                         <h1 className='title'>Choose Dataset</h1>
@@ -113,8 +128,8 @@ const FactorAnalysis = () => {
                             columns.length > 0 ? (
                                 columns.map((column) => (
                                     <div
-                                        className={`item column-item ${isColumnSelected(column.columnName) ? 'selected' : ''}`}
                                         key={column._id}
+                                        className={`item column-item ${isColumnSelected(column.columnName) ? 'selected' : ''}`}
                                         onClick={() => handleColumnSelection(column.columnName)}
                                     >
                                         <label>
@@ -122,7 +137,6 @@ const FactorAnalysis = () => {
                                                 type="checkbox"
                                                 checked={isColumnSelected(column.columnName)}
                                                 onChange={() => handleColumnSelection(column.columnName)}
-                                                onClick={(e) => e.stopPropagation()} // Prevent double toggle
                                             />
                                             <span className="checkbox-custom"></span>
                                             <h1>{column.columnName}</h1>
@@ -141,57 +155,64 @@ const FactorAnalysis = () => {
                         )}
                     </div>
                 </div>
-                <div className='Paramter-Buttons-Div'>
-                    <div className='number-of-rows-button'>
-                        <h1 className='name'>Min # of Rows</h1>
-                        <div className='edit-value'>
-                            <h1 className='addition' onClick={incrementMinRows}>+</h1>
-                            <h1 className='value'>{minRows}</h1>
-                            <h1 className='subtraction' onClick={decrementMinRows}>-</h1>
-                        </div>
-                    </div>
-                    <div className='max-number-of-titles'>
-                        <h1 className='name'>Max # of Titles</h1>
-                        <div className='edit-value'>
-                            <h1 className='addition' onClick={incrementMaxTitles}>+</h1>
-                            <h1 className='value'>{maxTitles}</h1>
-                            <h1 className='subtraction' onClick={decrementMaxTitles}>-</h1>
-                        </div>
-                    </div>
-                </div>
-                <div className='Factor-Analysis-div'>
+                <div className='Persona-selection-div'>
                     <div className='title-div'>
-                        <h1 className='title'>Factor Analysis</h1>
+                        <h1 className='title'>Persona Selection</h1>
                     </div>
-                    
-                    {factorAnalysisResult && (
-                        <div className='factor-analysis-result'>
-                            <h2>Factor Analysis Result:</h2>
-                            {factorAnalysisResult.length > 0 ? (
-                                factorAnalysisResult.map((topic, index) => (
-                                    <div key={index} className="topic">
-                                        {Object.entries(topic).map(([key, value]) => (
-                                            <p key={key}><strong>{key}:</strong> {Array.isArray(value) ? value.join(', ') : value}</p>
-                                        ))}
+                    <div className='items-presentation'>
+                        {showCreatePersonaButton ? (
+                            <button className="create-personas-button" onClick={handleCreatePersonaClick}>
+                                Create<br />Personas
+                            </button>
+                        ) : (
+                            <div className="personas-grid">
+                                {personas.map((persona, index) => (
+                                    <div
+                                        key={index}
+                                        className={`persona-box item ${selectedPersona === persona ? 'selected' : ''}`}
+                                        onClick={() => handlePersonaClick(persona)}
+                                    >
+                                        <h2>{persona.name}</h2>
                                     </div>
-                                ))
-                            ) : (
-                                <p>No topics were found in the analysis.</p>
-                            )}
-                        </div>
-                    )}
-                    {error && (
-                        <div className='error-message'>
-                            <h2>{error}</h2>
-                        </div>
-                    )}
-
-                <button className='factor-analysis-button' onClick={handleFactorAnalysis}>Perform Factor Analysis</button>
+                                ))}
+                            </div>
+                        )}
+                    </div>
                 </div>
-                
+                {selectedPersona && (
+                    <div className="selected-persona-details">
+                        <h2>Selected Persona: {selectedPersona.name}</h2>
+                        <p>Personality: {selectedPersona.personality}</p>
+                    </div>
+                )}
+                <div className='Chat-div'>
+                    <div className='title-div'>
+                        <h1 className='title'>Chat With the Persona</h1>
+                    </div>
+                    <div className='Chat-box'>
+                        <div className='Chat-items'>
+                            {chatHistory.map((chat, index) => (
+                                <div key={index} className={`chat-message ${chat.role}`}>
+                                    <strong>{chat.role === 'user' ? 'You' : selectedPersona.name}: </strong>
+                                    {chat.content}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <div className='send-message'>
+                            <input
+                                className='message-input'
+                                type="text"
+                                placeholder="Type a message..."
+                                value={message}
+                                onChange={(e) => setMessage(e.target.value)}
+                            />
+                            <button className='send-message-button' onClick={handleSendMessage}>Send</button>
+                        </div>
+                </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default FactorAnalysis;
+export default PersonaCreation;
